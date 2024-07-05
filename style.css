@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --color-1: #22272e;
+    --color-2: rgb(55, 63, 75);
+    --text-color: #cbf5f4;
+    --accent-color: #4c5868;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+html{
+    font-size: 12pt;
+    font-family: Poppins, 'Segoe UI', Tahoma, Verdana, sans-serif;
+    background: var(--color-1);
+}
+nav{
+    height: 60px;
+    background-color: var(--color-2);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.links-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+}
+nav a{
+    height: 100% ;
+    padding: 0 20px;
+    border-radius: 0 0 7px 7px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: .3s;
+}
+
+nav a:hover{
+    background: var(--accent-color);
+}
+
+nav .home-link{
+    margin-right: auto;
+}
+
+nav svg{
+    fill:var(--text-color);
+}
+
+#sidebar-active{
+    display: none;
+}
+
+.open-sidebar-button,  .close-sidebar-button{
+    display: none;
+}
+
+@media(max-width: 556px){
+    .links-container{
+        flex-direction: column;
+        align-items: flex-start;
+
+        position: fixed;
+        margin: 0;
+        top: 0;
+        right: -100%;
+        z-index: 10;
+        width: 300px;
+        border-radius: 0;
+        transition: .6s ease-out;
+
+        background-color: var(--color-2);
+        box-shadow: -5px 0 5px rgba(20, 26, 29, 0.25);
+    }
+    nav a{
+        box-sizing: border-box;
+        border-radius: 7px 0 0 7px;
+        height: auto;
+        width: 100%;
+        padding: 20px 30px;
+        justify-content: flex-start;
+    }
+    .open-sidebar-button,  .close-sidebar-button{
+        padding: 20px;
+        display: block;
+    }
+    #sidebar-active:checked ~ .links-container{
+        right: 0;
+    }
+    #sidebar-active:checked ~ #overlay{
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9;
+    }
+}
+
+#welcome-section {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+    max-height: 500px;
+}
+
+#welcome-section h1 {
+
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#welcome-section p {
+    margin-top: 150px;
+    margin-left: 500px;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: right;
+}
